@@ -12,15 +12,12 @@ shinyUI(fluidPage(
         sidebarPanel(
             selectInput("Transmission", "Transmission:",
                         c("Automatic" = "Automatic",
-                          "Manual" = "Manual"))
+                          "Manual" = "Manual")),
+            p("Select your favorite transmission type and see the fuel consumption as a function of car weight.")
         ),
         
-        # Show the caption and plot of the requested variable against
-        # mpg
+        # Plot the fuel consumption
         mainPanel(
-#            h3(textOutput("caption")),
-            h3(textOutput("mpg ~ wt")),
-            
             plotOutput("mpgPlot")
         )
     )
