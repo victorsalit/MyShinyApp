@@ -1,0 +1,42 @@
+My very first very shiny App
+========================================================
+author: Victor Salit
+date: 22 Feb 2015
+
+Introduction
+========================================================
+
+This application allows a user to choose his or her 
+favorite transmission type and get a plot of 
+the fuel consumption as a function of a car weight 
+for a chosen transmission. 
+
+
+Data
+========================================================
+The data is based on the 'mtcars' dataset from the 
+R datasets library
+```{r}
+library(datasets)
+head(mtcars[,c('mpg','wt','am')])
+```
+
+Processing
+========================================================
+for easier handling the dataset is split in two 
+subsets, based on the transmission type
+```{r, echo=FALSE}
+mpgData <- mtcars
+mpgData$transmission <- factor(mpgData$am, labels=c("Automatic", "Manual"))
+manuals <- subset(mpgData,transmission=='Manual')
+automatics <- subset(mpgData,transmission=='Automatic')
+head(automatics[,c('mpg','wt','transmission')],5)
+head(manuals[,c('mpg','wt','transmission')],5)
+```
+
+Link to the App
+========================================================
+The App can be found at
+http://victorsalit.shinyapps.io/MyShinyApp
+
+Enjoy!
